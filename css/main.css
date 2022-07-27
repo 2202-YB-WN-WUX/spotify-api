@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  padding: 30px;
+}
+
+#result {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+#result img {
+  width: 100%;
+}
