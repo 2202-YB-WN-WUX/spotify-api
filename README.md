@@ -1,5 +1,5 @@
 # Spotify Api
-Simple app which gets recent singles/albums using AJAX GET.
+Simple app which gets singles/albums using AJAX GET.
 
 ---
 
