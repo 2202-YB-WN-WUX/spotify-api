@@ -1,11 +1,12 @@
 // declare our settings
 // this is the new release endpoint
 // const endpointURL = "https://api.spotify.com/v1/browse/new-releases";
+
 // this is the search endpoint
 const endpointURL = "https://api.spotify.com/v1/search?q=milesdavis&type=track";
 // 
 
-const token = "BQAlGgy2wOu9vs7bZvMpNRlGQAMduYjNdNPGC9378cOWBvoHBB4ZtkH3SD7-LyxohTgiUbh85HlghWflfsz_glt14oO835jFlzE9fyuFW_7Bk6lj5E1EqpRHNOi0HDKpqN8sQoPHr7jUe05bCJH41b1jsThDQtOYmy9ya_hvSUm7";
+const token = "BQAP49fEgPcbOc_s7ZSAIt1kgWDPEazoU5phKxCbcCBgxdxbjuHXaU6VxnJ-cdAs8zc0AjKW8HA3wfpVtbJxda95AvjfOjCTdi2cMYh2Yql4DbAMq0ooeEFPZmJtjgdZm_0LiU6cUVxhQqFc6jdbhCgqtv67Gl3x2A8Fz5q_d4WT";
 
 let showMusic = (music) => {
     console.log("this is running!");
@@ -25,7 +26,7 @@ let showMusic = (music) => {
         // console.log(item);
         result.innerHTML += `
         <div>
-
+        <img src="${item.album.images[0].url}" alt="${item.name} cover">
         <h2>${item.name}</h2>
         <h3>${renderArtists(item.artists)}</h3>
         </div >
