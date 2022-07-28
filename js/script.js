@@ -1,7 +1,11 @@
 // declare our settings
-const endpointURL = "https://api.spotify.com/v1/browse/new-releases";
+// this is the new release endpoint
+// const endpointURL = "https://api.spotify.com/v1/browse/new-releases";
+// this is the search endpoint
+const endpointURL = "https://api.spotify.com/v1/search?q=milesdavis&type=track";
+// 
 
-const token = "BQDoSHECy1ZuvXb_0OP1ZiijXWpXpepb8ujbaNGXe4CtTLL0MQiUZ51oV8r7qTe0ZxHxwvwoUxX2rAJqwmPF0wsB_po3mbvyf7FXDKJ4TWWhOELQbI0sl2nKj5wICaYAPxkErd_nAFMXcPau-ELbO9WlfPC8Am8lNo0Q1mnQhIFO";
+const token = "BQAlGgy2wOu9vs7bZvMpNRlGQAMduYjNdNPGC9378cOWBvoHBB4ZtkH3SD7-LyxohTgiUbh85HlghWflfsz_glt14oO835jFlzE9fyuFW_7Bk6lj5E1EqpRHNOi0HDKpqN8sQoPHr7jUe05bCJH41b1jsThDQtOYmy9ya_hvSUm7";
 
 let showMusic = (music) => {
     console.log("this is running!");
@@ -11,21 +15,21 @@ let showMusic = (music) => {
             // console.log(item.name);
             allArtists.push(item.name);
         })
-        return allArtists;
+        return allArtists.join(', ');
     }
+
+    // Activity: show the artists with a space between each name.
+
     music.forEach((item) => {
         // this function will run for each item
         // console.log(item);
         result.innerHTML += `
         <div>
-        <img src="${item.images[0].url}" alt="${item.name} 
-        cover">
+
         <h2>${item.name}</h2>
         <h3>${renderArtists(item.artists)}</h3>
         </div >
     `;
-
-
     })
 }
 
@@ -44,10 +48,22 @@ $.ajax({
         'Authorization': 'Bearer ' + token
     },
     success: function (data) {
-        // console.log(data.albums.items);
-        showMusic(data.albums.items);
+        // console.log(data);
+        // console.log(data.tracks.items);
+        showMusic(data.tracks.items);
     },
     error: function (error) {
         console.log(error);
     }
 });
+
+// Activity:
+// Show the Miles Davis tracks on the screen, with the album covers.
+
+// Show the length of each track in minutes and seconds.
+// You'll need to convert milliseconds to min/sec (use a Google search).
+
+// Step 1: Show the popularity of the track as a number.
+// Step 2: If the track is >50 && <= 80 popularity, show a label
+// over the image which says "Trending".
+// >80 popularity: make the label say "Hot".

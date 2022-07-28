@@ -7,6 +7,10 @@ body {
   padding: 30px;
 }
 
+h1 {
+  margin-bottom: 30px;
+}
+
 #result {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
